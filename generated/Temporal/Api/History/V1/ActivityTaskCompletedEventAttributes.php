@@ -39,6 +39,7 @@ class ActivityTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
     protected $identity = '';
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      */
@@ -60,6 +61,7 @@ class ActivityTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
      *           id of the worker that completed this task
      *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $worker_version
      *           Version info of the worker who processed this workflow task.
+     *           Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      * }
      */
     public function __construct($data = NULL) {
@@ -183,6 +185,7 @@ class ActivityTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
 
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
@@ -204,6 +207,7 @@ class ActivityTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
 
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var

@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Deprecated. Use `InternalTaskQueueStatus`. This is kept until `DescribeTaskQueue` supports legacy behavior.
+ *
  * Generated from protobuf message <code>temporal.api.taskqueue.v1.TaskQueueStatus</code>
  */
 class TaskQueueStatus extends \Google\Protobuf\Internal\Message

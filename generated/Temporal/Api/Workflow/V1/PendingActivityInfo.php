@@ -61,6 +61,13 @@ class PendingActivityInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string last_worker_identity = 12;</code>
      */
     protected $last_worker_identity = '';
+    /**
+     * The version stamp of the worker to whom this activity was most recently dispatched
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp last_worker_version_stamp = 15;</code>
+     */
+    protected $last_worker_version_stamp = null;
+    protected $assigned_build_id;
 
     /**
      * Constructor.
@@ -80,6 +87,15 @@ class PendingActivityInfo extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $expiration_time
      *     @type \Temporal\Api\Failure\V1\Failure $last_failure
      *     @type string $last_worker_identity
+     *     @type \Google\Protobuf\GPBEmpty $use_workflow_build_id
+     *           When present, it means this activity is assigned to the build ID of its workflow.
+     *     @type string $last_independently_assigned_build_id
+     *           This means the activity is independently versioned and not bound to the build ID of its workflow.
+     *           The activity will use the build id in this field instead.
+     *           If the task fails and is scheduled again, the assigned build ID may change according to the latest versioning
+     *           rules.
+     *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $last_worker_version_stamp
+     *           The version stamp of the worker to whom this activity was most recently dispatched
      * }
      */
     public function __construct($data = NULL) {
@@ -419,6 +435,118 @@ class PendingActivityInfo extends \Google\Protobuf\Internal\Message
         $this->last_worker_identity = $var;
 
         return $this;
+    }
+
+    /**
+     * When present, it means this activity is assigned to the build ID of its workflow.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Empty use_workflow_build_id = 13;</code>
+     * @return \Google\Protobuf\GPBEmpty|null
+     */
+    public function getUseWorkflowBuildId()
+    {
+        return $this->readOneof(13);
+    }
+
+    public function hasUseWorkflowBuildId()
+    {
+        return $this->hasOneof(13);
+    }
+
+    /**
+     * When present, it means this activity is assigned to the build ID of its workflow.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Empty use_workflow_build_id = 13;</code>
+     * @param \Google\Protobuf\GPBEmpty $var
+     * @return $this
+     */
+    public function setUseWorkflowBuildId($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\GPBEmpty::class);
+        $this->writeOneof(13, $var);
+
+        return $this;
+    }
+
+    /**
+     * This means the activity is independently versioned and not bound to the build ID of its workflow.
+     * The activity will use the build id in this field instead.
+     * If the task fails and is scheduled again, the assigned build ID may change according to the latest versioning
+     * rules.
+     *
+     * Generated from protobuf field <code>string last_independently_assigned_build_id = 14;</code>
+     * @return string
+     */
+    public function getLastIndependentlyAssignedBuildId()
+    {
+        return $this->readOneof(14);
+    }
+
+    public function hasLastIndependentlyAssignedBuildId()
+    {
+        return $this->hasOneof(14);
+    }
+
+    /**
+     * This means the activity is independently versioned and not bound to the build ID of its workflow.
+     * The activity will use the build id in this field instead.
+     * If the task fails and is scheduled again, the assigned build ID may change according to the latest versioning
+     * rules.
+     *
+     * Generated from protobuf field <code>string last_independently_assigned_build_id = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLastIndependentlyAssignedBuildId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->writeOneof(14, $var);
+
+        return $this;
+    }
+
+    /**
+     * The version stamp of the worker to whom this activity was most recently dispatched
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp last_worker_version_stamp = 15;</code>
+     * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
+     */
+    public function getLastWorkerVersionStamp()
+    {
+        return $this->last_worker_version_stamp;
+    }
+
+    public function hasLastWorkerVersionStamp()
+    {
+        return isset($this->last_worker_version_stamp);
+    }
+
+    public function clearLastWorkerVersionStamp()
+    {
+        unset($this->last_worker_version_stamp);
+    }
+
+    /**
+     * The version stamp of the worker to whom this activity was most recently dispatched
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp last_worker_version_stamp = 15;</code>
+     * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var
+     * @return $this
+     */
+    public function setLastWorkerVersionStamp($var)
+    {
+        GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\WorkerVersionStamp::class);
+        $this->last_worker_version_stamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAssignedBuildId()
+    {
+        return $this->whichOneof("assigned_build_id");
     }
 
 }

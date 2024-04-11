@@ -173,6 +173,7 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
     /**
      * If this workflow intends to use anything other than the current overall default version for
      * the queue, then we include it here.
+     * Deprecated. use `inherited_build_id` instead
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp source_version_stamp = 29;</code>
      */
@@ -183,6 +184,33 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
      * Generated from protobuf field <code>repeated .temporal.api.common.v1.Callback completion_callbacks = 30;</code>
      */
     private $completion_callbacks;
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_workflow_execution = 31;</code>
+     */
+    protected $root_workflow_execution = null;
+    /**
+     * When present, this execution is assigned to the build ID of its parent or previous execution.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 32;</code>
+     */
+    protected $inherited_build_id = '';
 
     /**
      * Constructor.
@@ -247,8 +275,28 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
      *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $source_version_stamp
      *           If this workflow intends to use anything other than the current overall default version for
      *           the queue, then we include it here.
+     *           Deprecated. use `inherited_build_id` instead
      *     @type array<\Temporal\Api\Common\V1\Callback>|\Google\Protobuf\Internal\RepeatedField $completion_callbacks
      *           Completion callbacks attached when this workflow was started.
+     *     @type \Temporal\Api\Common\V1\WorkflowExecution $root_workflow_execution
+     *           Contains information about the root workflow execution.
+     *           The root workflow execution is defined as follows:
+     *           1. A workflow without parent workflow is its own root workflow.
+     *           2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     *           Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     *           Examples:
+     *             Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 3: Workflow W1 continued as new W2.
+     *               - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *             Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 5: Workflow W1 is reseted, creating W2.
+     *               - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *     @type string $inherited_build_id
+     *           When present, this execution is assigned to the build ID of its parent or previous execution.
      * }
      */
     public function __construct($data = NULL) {
@@ -1121,6 +1169,7 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
     /**
      * If this workflow intends to use anything other than the current overall default version for
      * the queue, then we include it here.
+     * Deprecated. use `inherited_build_id` instead
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp source_version_stamp = 29;</code>
      * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
@@ -1143,6 +1192,7 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
     /**
      * If this workflow intends to use anything other than the current overall default version for
      * the queue, then we include it here.
+     * Deprecated. use `inherited_build_id` instead
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp source_version_stamp = 29;</code>
      * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var
@@ -1178,6 +1228,98 @@ class WorkflowExecutionStartedEventAttributes extends \Google\Protobuf\Internal\
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Temporal\Api\Common\V1\Callback::class);
         $this->completion_callbacks = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_workflow_execution = 31;</code>
+     * @return \Temporal\Api\Common\V1\WorkflowExecution|null
+     */
+    public function getRootWorkflowExecution()
+    {
+        return $this->root_workflow_execution;
+    }
+
+    public function hasRootWorkflowExecution()
+    {
+        return isset($this->root_workflow_execution);
+    }
+
+    public function clearRootWorkflowExecution()
+    {
+        unset($this->root_workflow_execution);
+    }
+
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_workflow_execution = 31;</code>
+     * @param \Temporal\Api\Common\V1\WorkflowExecution $var
+     * @return $this
+     */
+    public function setRootWorkflowExecution($var)
+    {
+        GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\WorkflowExecution::class);
+        $this->root_workflow_execution = $var;
+
+        return $this;
+    }
+
+    /**
+     * When present, this execution is assigned to the build ID of its parent or previous execution.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 32;</code>
+     * @return string
+     */
+    public function getInheritedBuildId()
+    {
+        return $this->inherited_build_id;
+    }
+
+    /**
+     * When present, this execution is assigned to the build ID of its parent or previous execution.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 32;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setInheritedBuildId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->inherited_build_id = $var;
 
         return $this;
     }

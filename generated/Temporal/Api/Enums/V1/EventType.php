@@ -336,13 +336,13 @@ class EventType
      */
     const EVENT_TYPE_WORKFLOW_PROPERTIES_MODIFIED = 46;
     /**
-     * An update was requested. Note that not all update requests result in this
-     * event. See UpdateRequestedEventOrigin for situations in which this event
+     * An update was admitted. Note that not all admitted updates result in this
+     * event. See UpdateAdmittedEventOrigin for situations in which this event
      * is created.
      *
-     * Generated from protobuf enum <code>EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_REQUESTED = 47;</code>
+     * Generated from protobuf enum <code>EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_ADMITTED = 47;</code>
      */
-    const EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_REQUESTED = 47;
+    const EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_ADMITTED = 47;
 
     private static $valueToName = [
         self::EVENT_TYPE_UNSPECIFIED => 'EVENT_TYPE_UNSPECIFIED',
@@ -392,7 +392,7 @@ class EventType
         self::EVENT_TYPE_WORKFLOW_PROPERTIES_MODIFIED_EXTERNALLY => 'EVENT_TYPE_WORKFLOW_PROPERTIES_MODIFIED_EXTERNALLY',
         self::EVENT_TYPE_ACTIVITY_PROPERTIES_MODIFIED_EXTERNALLY => 'EVENT_TYPE_ACTIVITY_PROPERTIES_MODIFIED_EXTERNALLY',
         self::EVENT_TYPE_WORKFLOW_PROPERTIES_MODIFIED => 'EVENT_TYPE_WORKFLOW_PROPERTIES_MODIFIED',
-        self::EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_REQUESTED => 'EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_REQUESTED',
+        self::EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_ADMITTED => 'EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_ADMITTED',
     ];
 
     public static function name($value)

@@ -14,11 +14,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class DeleteNexusIncomingServiceRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Name of service to delete.
+     * Server-generated unique service ID.
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string id = 1;</code>
      */
-    protected $name = '';
+    protected $id = '';
+    /**
+     * Data version for this service. Must match current version.
+     *
+     * Generated from protobuf field <code>int64 version = 2;</code>
+     */
+    protected $version = 0;
 
     /**
      * Constructor.
@@ -26,8 +32,10 @@ class DeleteNexusIncomingServiceRequest extends \Google\Protobuf\Internal\Messag
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $name
-     *           Name of service to delete.
+     *     @type string $id
+     *           Server-generated unique service ID.
+     *     @type int|string $version
+     *           Data version for this service. Must match current version.
      * }
      */
     public function __construct($data = NULL) {
@@ -36,27 +44,53 @@ class DeleteNexusIncomingServiceRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Name of service to delete.
+     * Server-generated unique service ID.
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string id = 1;</code>
      * @return string
      */
-    public function getName()
+    public function getId()
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**
-     * Name of service to delete.
+     * Server-generated unique service ID.
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string id = 1;</code>
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setId($var)
     {
         GPBUtil::checkString($var, True);
-        $this->name = $var;
+        $this->id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Data version for this service. Must match current version.
+     *
+     * Generated from protobuf field <code>int64 version = 2;</code>
+     * @return int|string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Data version for this service. Must match current version.
+     *
+     * Generated from protobuf field <code>int64 version = 2;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setVersion($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->version = $var;
 
         return $this;
     }

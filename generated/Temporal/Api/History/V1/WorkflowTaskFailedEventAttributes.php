@@ -70,6 +70,7 @@ class WorkflowTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 10;</code>
      */
@@ -103,6 +104,7 @@ class WorkflowTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
      *           Version info of the worker who processed this workflow task. If present, the `build_id` field
      *           within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      *           populated to preserve compatibility).
+     *           Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      * }
      */
     public function __construct($data = NULL) {
@@ -356,6 +358,7 @@ class WorkflowTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 10;</code>
      * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
@@ -379,6 +382,7 @@ class WorkflowTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 10;</code>
      * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var

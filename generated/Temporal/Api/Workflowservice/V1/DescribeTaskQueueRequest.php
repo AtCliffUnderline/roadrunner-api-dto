@@ -9,6 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * (-- api-linter: core::0203::optional=disabled
+ *     aip.dev/not-precedent: field_behavior annotation not available in our gogo fork --)
+ *
  * Generated from protobuf message <code>temporal.api.workflowservice.v1.DescribeTaskQueueRequest</code>
  */
 class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
@@ -18,19 +21,60 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
      */
     protected $namespace = '';
     /**
+     * Sticky queues are not supported in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueue task_queue = 2;</code>
      */
     protected $task_queue = null;
     /**
+     * Deprecated. Use `ENHANCED` mode with `task_queue_types`. Ignored in `ENHANCED` mode.
      * If unspecified (TASK_QUEUE_TYPE_UNSPECIFIED), then default value (TASK_QUEUE_TYPE_WORKFLOW) will be used.
      *
      * Generated from protobuf field <code>.temporal.api.enums.v1.TaskQueueType task_queue_type = 3;</code>
      */
     protected $task_queue_type = 0;
     /**
+     * Deprecated. Ignored in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>bool include_task_queue_status = 4;</code>
      */
     protected $include_task_queue_status = false;
+    /**
+     * All options except `task_queue_type` and `include_task_queue_status` are only available in the `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>.temporal.api.enums.v1.DescribeTaskQueueMode api_mode = 5;</code>
+     */
+    protected $api_mode = 0;
+    /**
+     * Optional. If not provided, the result for the default Build ID will be returned. The default Build ID is the one
+     * mentioned in the first unconditional Assignment Rule. If there is no default Build ID, the result for the
+     * unversioned queue will be returned.
+     * (-- api-linter: core::0140::prepositions --)
+     *
+     * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueVersionSelection versions = 6;</code>
+     */
+    protected $versions = null;
+    /**
+     * Task queue types to report info about. If not specified, all types are considered.
+     *
+     * Generated from protobuf field <code>repeated .temporal.api.enums.v1.TaskQueueType task_queue_types = 7;</code>
+     */
+    private $task_queue_types;
+    /**
+     * Report backlog info for the requested task queue types and versions
+     * bool report_backlog_info = 8;
+     * Report list of pollers for requested task queue types and versions
+     *
+     * Generated from protobuf field <code>bool report_pollers = 9;</code>
+     */
+    protected $report_pollers = false;
+    /**
+     * Report task reachability for the requested versions and all task types (task reachability is not reported
+     * per task type).
+     *
+     * Generated from protobuf field <code>bool report_task_reachability = 10;</code>
+     */
+    protected $report_task_reachability = false;
 
     /**
      * Constructor.
@@ -40,9 +84,28 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $namespace
      *     @type \Temporal\Api\Taskqueue\V1\TaskQueue $task_queue
+     *           Sticky queues are not supported in `ENHANCED` mode.
      *     @type int $task_queue_type
+     *           Deprecated. Use `ENHANCED` mode with `task_queue_types`. Ignored in `ENHANCED` mode.
      *           If unspecified (TASK_QUEUE_TYPE_UNSPECIFIED), then default value (TASK_QUEUE_TYPE_WORKFLOW) will be used.
      *     @type bool $include_task_queue_status
+     *           Deprecated. Ignored in `ENHANCED` mode.
+     *     @type int $api_mode
+     *           All options except `task_queue_type` and `include_task_queue_status` are only available in the `ENHANCED` mode.
+     *     @type \Temporal\Api\Taskqueue\V1\TaskQueueVersionSelection $versions
+     *           Optional. If not provided, the result for the default Build ID will be returned. The default Build ID is the one
+     *           mentioned in the first unconditional Assignment Rule. If there is no default Build ID, the result for the
+     *           unversioned queue will be returned.
+     *           (-- api-linter: core::0140::prepositions --)
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $task_queue_types
+     *           Task queue types to report info about. If not specified, all types are considered.
+     *     @type bool $report_pollers
+     *           Report backlog info for the requested task queue types and versions
+     *           bool report_backlog_info = 8;
+     *           Report list of pollers for requested task queue types and versions
+     *     @type bool $report_task_reachability
+     *           Report task reachability for the requested versions and all task types (task reachability is not reported
+     *           per task type).
      * }
      */
     public function __construct($data = NULL) {
@@ -73,6 +136,8 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Sticky queues are not supported in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueue task_queue = 2;</code>
      * @return \Temporal\Api\Taskqueue\V1\TaskQueue|null
      */
@@ -92,6 +157,8 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Sticky queues are not supported in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueue task_queue = 2;</code>
      * @param \Temporal\Api\Taskqueue\V1\TaskQueue $var
      * @return $this
@@ -105,6 +172,7 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Use `ENHANCED` mode with `task_queue_types`. Ignored in `ENHANCED` mode.
      * If unspecified (TASK_QUEUE_TYPE_UNSPECIFIED), then default value (TASK_QUEUE_TYPE_WORKFLOW) will be used.
      *
      * Generated from protobuf field <code>.temporal.api.enums.v1.TaskQueueType task_queue_type = 3;</code>
@@ -116,6 +184,7 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Use `ENHANCED` mode with `task_queue_types`. Ignored in `ENHANCED` mode.
      * If unspecified (TASK_QUEUE_TYPE_UNSPECIFIED), then default value (TASK_QUEUE_TYPE_WORKFLOW) will be used.
      *
      * Generated from protobuf field <code>.temporal.api.enums.v1.TaskQueueType task_queue_type = 3;</code>
@@ -131,6 +200,8 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Ignored in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>bool include_task_queue_status = 4;</code>
      * @return bool
      */
@@ -140,6 +211,8 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Ignored in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>bool include_task_queue_status = 4;</code>
      * @param bool $var
      * @return $this
@@ -148,6 +221,158 @@ class DescribeTaskQueueRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->include_task_queue_status = $var;
+
+        return $this;
+    }
+
+    /**
+     * All options except `task_queue_type` and `include_task_queue_status` are only available in the `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>.temporal.api.enums.v1.DescribeTaskQueueMode api_mode = 5;</code>
+     * @return int
+     */
+    public function getApiMode()
+    {
+        return $this->api_mode;
+    }
+
+    /**
+     * All options except `task_queue_type` and `include_task_queue_status` are only available in the `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>.temporal.api.enums.v1.DescribeTaskQueueMode api_mode = 5;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setApiMode($var)
+    {
+        GPBUtil::checkEnum($var, \Temporal\Api\Enums\V1\DescribeTaskQueueMode::class);
+        $this->api_mode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Optional. If not provided, the result for the default Build ID will be returned. The default Build ID is the one
+     * mentioned in the first unconditional Assignment Rule. If there is no default Build ID, the result for the
+     * unversioned queue will be returned.
+     * (-- api-linter: core::0140::prepositions --)
+     *
+     * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueVersionSelection versions = 6;</code>
+     * @return \Temporal\Api\Taskqueue\V1\TaskQueueVersionSelection|null
+     */
+    public function getVersions()
+    {
+        return $this->versions;
+    }
+
+    public function hasVersions()
+    {
+        return isset($this->versions);
+    }
+
+    public function clearVersions()
+    {
+        unset($this->versions);
+    }
+
+    /**
+     * Optional. If not provided, the result for the default Build ID will be returned. The default Build ID is the one
+     * mentioned in the first unconditional Assignment Rule. If there is no default Build ID, the result for the
+     * unversioned queue will be returned.
+     * (-- api-linter: core::0140::prepositions --)
+     *
+     * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueVersionSelection versions = 6;</code>
+     * @param \Temporal\Api\Taskqueue\V1\TaskQueueVersionSelection $var
+     * @return $this
+     */
+    public function setVersions($var)
+    {
+        GPBUtil::checkMessage($var, \Temporal\Api\Taskqueue\V1\TaskQueueVersionSelection::class);
+        $this->versions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Task queue types to report info about. If not specified, all types are considered.
+     *
+     * Generated from protobuf field <code>repeated .temporal.api.enums.v1.TaskQueueType task_queue_types = 7;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getTaskQueueTypes()
+    {
+        return $this->task_queue_types;
+    }
+
+    /**
+     * Task queue types to report info about. If not specified, all types are considered.
+     *
+     * Generated from protobuf field <code>repeated .temporal.api.enums.v1.TaskQueueType task_queue_types = 7;</code>
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setTaskQueueTypes($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Temporal\Api\Enums\V1\TaskQueueType::class);
+        $this->task_queue_types = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Report backlog info for the requested task queue types and versions
+     * bool report_backlog_info = 8;
+     * Report list of pollers for requested task queue types and versions
+     *
+     * Generated from protobuf field <code>bool report_pollers = 9;</code>
+     * @return bool
+     */
+    public function getReportPollers()
+    {
+        return $this->report_pollers;
+    }
+
+    /**
+     * Report backlog info for the requested task queue types and versions
+     * bool report_backlog_info = 8;
+     * Report list of pollers for requested task queue types and versions
+     *
+     * Generated from protobuf field <code>bool report_pollers = 9;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setReportPollers($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->report_pollers = $var;
+
+        return $this;
+    }
+
+    /**
+     * Report task reachability for the requested versions and all task types (task reachability is not reported
+     * per task type).
+     *
+     * Generated from protobuf field <code>bool report_task_reachability = 10;</code>
+     * @return bool
+     */
+    public function getReportTaskReachability()
+    {
+        return $this->report_task_reachability;
+    }
+
+    /**
+     * Report task reachability for the requested versions and all task types (task reachability is not reported
+     * per task type).
+     *
+     * Generated from protobuf field <code>bool report_task_reachability = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setReportTaskReachability($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->report_task_reachability = $var;
 
         return $this;
     }

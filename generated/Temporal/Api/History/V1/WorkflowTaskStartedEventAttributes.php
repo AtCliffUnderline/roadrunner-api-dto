@@ -46,6 +46,19 @@ class WorkflowTaskStartedEventAttributes extends \Google\Protobuf\Internal\Messa
      * Generated from protobuf field <code>int64 history_size_bytes = 5;</code>
      */
     protected $history_size_bytes = 0;
+    /**
+     * Version info of the worker to whom this task was dispatched.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
+     */
+    protected $worker_version = null;
+    /**
+     * Used by server internally to properly reapply build ID redirects to an execution
+     * when rebuilding it from events.
+     *
+     * Generated from protobuf field <code>int64 build_id_redirect_counter = 7;</code>
+     */
+    protected $build_id_redirect_counter = 0;
 
     /**
      * Constructor.
@@ -66,6 +79,11 @@ class WorkflowTaskStartedEventAttributes extends \Google\Protobuf\Internal\Messa
      *           Total history size in bytes, which the workflow might use to decide when to
      *           continue-as-new regardless of the suggestion. Note that history event count is
      *           just the event id of this event, so we don't include it explicitly here.
+     *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $worker_version
+     *           Version info of the worker to whom this task was dispatched.
+     *     @type int|string $build_id_redirect_counter
+     *           Used by server internally to properly reapply build ID redirects to an execution
+     *           when rebuilding it from events.
      * }
      */
     public function __construct($data = NULL) {
@@ -205,6 +223,70 @@ class WorkflowTaskStartedEventAttributes extends \Google\Protobuf\Internal\Messa
     {
         GPBUtil::checkInt64($var);
         $this->history_size_bytes = $var;
+
+        return $this;
+    }
+
+    /**
+     * Version info of the worker to whom this task was dispatched.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
+     * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
+     */
+    public function getWorkerVersion()
+    {
+        return $this->worker_version;
+    }
+
+    public function hasWorkerVersion()
+    {
+        return isset($this->worker_version);
+    }
+
+    public function clearWorkerVersion()
+    {
+        unset($this->worker_version);
+    }
+
+    /**
+     * Version info of the worker to whom this task was dispatched.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
+     * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var
+     * @return $this
+     */
+    public function setWorkerVersion($var)
+    {
+        GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\WorkerVersionStamp::class);
+        $this->worker_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Used by server internally to properly reapply build ID redirects to an execution
+     * when rebuilding it from events.
+     *
+     * Generated from protobuf field <code>int64 build_id_redirect_counter = 7;</code>
+     * @return int|string
+     */
+    public function getBuildIdRedirectCounter()
+    {
+        return $this->build_id_redirect_counter;
+    }
+
+    /**
+     * Used by server internally to properly reapply build ID redirects to an execution
+     * when rebuilding it from events.
+     *
+     * Generated from protobuf field <code>int64 build_id_redirect_counter = 7;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setBuildIdRedirectCounter($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->build_id_redirect_counter = $var;
 
         return $this;
     }

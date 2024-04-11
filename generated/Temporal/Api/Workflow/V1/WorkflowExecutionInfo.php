@@ -79,6 +79,52 @@ class WorkflowExecutionInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp most_recent_worker_version_stamp = 16;</code>
      */
     protected $most_recent_worker_version_stamp = null;
+    /**
+     * Workflow execution duration is defined as difference between close time and execution time.
+     * This field is only populated if the workflow is closed.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration execution_duration = 17;</code>
+     */
+    protected $execution_duration = null;
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_execution = 18;</code>
+     */
+    protected $root_execution = null;
+    /**
+     * The currently assigned build ID for this execution. Presence of this value means worker versioning is used
+     * for this execution. Assigned build ID is selected based on Worker Versioning Assignment Rules
+     * when the first workflow task of the execution is scheduled. If the first workflow task fails and is scheduled
+     * again, the assigned build ID may change according to the latest versioning rules.
+     * Assigned build ID can also change in the middle of a execution if Compatible Redirect Rules are applied to
+     * this execution.
+     *
+     * Generated from protobuf field <code>string assigned_build_id = 19;</code>
+     */
+    protected $assigned_build_id = '';
+    /**
+     * Build ID inherited from a previous/parent execution. If present, assigned_build_id will be set to this, instead
+     * of using the assignment rules.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 20;</code>
+     */
+    protected $inherited_build_id = '';
 
     /**
      * Constructor.
@@ -103,6 +149,36 @@ class WorkflowExecutionInfo extends \Google\Protobuf\Internal\Message
      *     @type int|string $history_size_bytes
      *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $most_recent_worker_version_stamp
      *           If set, the most recent worker version stamp that appeared in a workflow task completion
+     *     @type \Google\Protobuf\Duration $execution_duration
+     *           Workflow execution duration is defined as difference between close time and execution time.
+     *           This field is only populated if the workflow is closed.
+     *     @type \Temporal\Api\Common\V1\WorkflowExecution $root_execution
+     *           Contains information about the root workflow execution.
+     *           The root workflow execution is defined as follows:
+     *           1. A workflow without parent workflow is its own root workflow.
+     *           2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     *           Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     *           Examples:
+     *             Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 3: Workflow W1 continued as new W2.
+     *               - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *             Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *               - The root workflow of all three workflows is W1.
+     *             Scenario 5: Workflow W1 is reseted, creating W2.
+     *               - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *     @type string $assigned_build_id
+     *           The currently assigned build ID for this execution. Presence of this value means worker versioning is used
+     *           for this execution. Assigned build ID is selected based on Worker Versioning Assignment Rules
+     *           when the first workflow task of the execution is scheduled. If the first workflow task fails and is scheduled
+     *           again, the assigned build ID may change according to the latest versioning rules.
+     *           Assigned build ID can also change in the middle of a execution if Compatible Redirect Rules are applied to
+     *           this execution.
+     *     @type string $inherited_build_id
+     *           Build ID inherited from a previous/parent execution. If present, assigned_build_id will be set to this, instead
+     *           of using the assignment rules.
      * }
      */
     public function __construct($data = NULL) {
@@ -562,6 +638,174 @@ class WorkflowExecutionInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\WorkerVersionStamp::class);
         $this->most_recent_worker_version_stamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * Workflow execution duration is defined as difference between close time and execution time.
+     * This field is only populated if the workflow is closed.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration execution_duration = 17;</code>
+     * @return \Google\Protobuf\Duration|null
+     */
+    public function getExecutionDuration()
+    {
+        return $this->execution_duration;
+    }
+
+    public function hasExecutionDuration()
+    {
+        return isset($this->execution_duration);
+    }
+
+    public function clearExecutionDuration()
+    {
+        unset($this->execution_duration);
+    }
+
+    /**
+     * Workflow execution duration is defined as difference between close time and execution time.
+     * This field is only populated if the workflow is closed.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration execution_duration = 17;</code>
+     * @param \Google\Protobuf\Duration $var
+     * @return $this
+     */
+    public function setExecutionDuration($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Duration::class);
+        $this->execution_duration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_execution = 18;</code>
+     * @return \Temporal\Api\Common\V1\WorkflowExecution|null
+     */
+    public function getRootExecution()
+    {
+        return $this->root_execution;
+    }
+
+    public function hasRootExecution()
+    {
+        return isset($this->root_execution);
+    }
+
+    public function clearRootExecution()
+    {
+        unset($this->root_execution);
+    }
+
+    /**
+     * Contains information about the root workflow execution.
+     * The root workflow execution is defined as follows:
+     * 1. A workflow without parent workflow is its own root workflow.
+     * 2. A workflow that has a parent workflow has the same root workflow as its parent workflow.
+     * Note: workflows continued as new or reseted may or may not have parents, check examples below.
+     * Examples:
+     *   Scenario 1: Workflow W1 starts child workflow W2, and W2 starts child workflow W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 2: Workflow W1 starts child workflow W2, and W2 continued as new W3.
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 3: Workflow W1 continued as new W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *   Scenario 4: Workflow W1 starts child workflow W2, and W2 is reseted, creating W3
+     *     - The root workflow of all three workflows is W1.
+     *   Scenario 5: Workflow W1 is reseted, creating W2.
+     *     - The root workflow of W1 is W1 and the root workflow of W2 is W2.
+     *
+     * Generated from protobuf field <code>.temporal.api.common.v1.WorkflowExecution root_execution = 18;</code>
+     * @param \Temporal\Api\Common\V1\WorkflowExecution $var
+     * @return $this
+     */
+    public function setRootExecution($var)
+    {
+        GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\WorkflowExecution::class);
+        $this->root_execution = $var;
+
+        return $this;
+    }
+
+    /**
+     * The currently assigned build ID for this execution. Presence of this value means worker versioning is used
+     * for this execution. Assigned build ID is selected based on Worker Versioning Assignment Rules
+     * when the first workflow task of the execution is scheduled. If the first workflow task fails and is scheduled
+     * again, the assigned build ID may change according to the latest versioning rules.
+     * Assigned build ID can also change in the middle of a execution if Compatible Redirect Rules are applied to
+     * this execution.
+     *
+     * Generated from protobuf field <code>string assigned_build_id = 19;</code>
+     * @return string
+     */
+    public function getAssignedBuildId()
+    {
+        return $this->assigned_build_id;
+    }
+
+    /**
+     * The currently assigned build ID for this execution. Presence of this value means worker versioning is used
+     * for this execution. Assigned build ID is selected based on Worker Versioning Assignment Rules
+     * when the first workflow task of the execution is scheduled. If the first workflow task fails and is scheduled
+     * again, the assigned build ID may change according to the latest versioning rules.
+     * Assigned build ID can also change in the middle of a execution if Compatible Redirect Rules are applied to
+     * this execution.
+     *
+     * Generated from protobuf field <code>string assigned_build_id = 19;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAssignedBuildId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->assigned_build_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Build ID inherited from a previous/parent execution. If present, assigned_build_id will be set to this, instead
+     * of using the assignment rules.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 20;</code>
+     * @return string
+     */
+    public function getInheritedBuildId()
+    {
+        return $this->inherited_build_id;
+    }
+
+    /**
+     * Build ID inherited from a previous/parent execution. If present, assigned_build_id will be set to this, instead
+     * of using the assignment rules.
+     *
+     * Generated from protobuf field <code>string inherited_build_id = 20;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setInheritedBuildId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->inherited_build_id = $var;
 
         return $this;
     }

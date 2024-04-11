@@ -14,13 +14,25 @@ use Google\Protobuf\Internal\GPBUtil;
 class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Deprecated. Use `versions_info.types_info.pollers` with `ENHANCED` mode instead.
+     * Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>repeated .temporal.api.taskqueue.v1.PollerInfo pollers = 1;</code>
      */
     private $pollers;
     /**
+     * Deprecated. Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueStatus task_queue_status = 2;</code>
      */
     protected $task_queue_status = null;
+    /**
+     * This map contains Task Queue information for each Build ID. Empty string as key value means unversioned.
+     * Only set in `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>map<string, .temporal.api.taskqueue.v1.TaskQueueVersionInfo> versions_info = 3;</code>
+     */
+    private $versions_info;
 
     /**
      * Constructor.
@@ -29,7 +41,13 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type array<\Temporal\Api\Taskqueue\V1\PollerInfo>|\Google\Protobuf\Internal\RepeatedField $pollers
+     *           Deprecated. Use `versions_info.types_info.pollers` with `ENHANCED` mode instead.
+     *           Not set in `ENHANCED` mode.
      *     @type \Temporal\Api\Taskqueue\V1\TaskQueueStatus $task_queue_status
+     *           Deprecated. Not set in `ENHANCED` mode.
+     *     @type array|\Google\Protobuf\Internal\MapField $versions_info
+     *           This map contains Task Queue information for each Build ID. Empty string as key value means unversioned.
+     *           Only set in `ENHANCED` mode.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +56,9 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Use `versions_info.types_info.pollers` with `ENHANCED` mode instead.
+     * Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>repeated .temporal.api.taskqueue.v1.PollerInfo pollers = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -47,6 +68,9 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Use `versions_info.types_info.pollers` with `ENHANCED` mode instead.
+     * Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>repeated .temporal.api.taskqueue.v1.PollerInfo pollers = 1;</code>
      * @param array<\Temporal\Api\Taskqueue\V1\PollerInfo>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -60,6 +84,8 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueStatus task_queue_status = 2;</code>
      * @return \Temporal\Api\Taskqueue\V1\TaskQueueStatus|null
      */
@@ -79,6 +105,8 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated. Not set in `ENHANCED` mode.
+     *
      * Generated from protobuf field <code>.temporal.api.taskqueue.v1.TaskQueueStatus task_queue_status = 2;</code>
      * @param \Temporal\Api\Taskqueue\V1\TaskQueueStatus $var
      * @return $this
@@ -87,6 +115,34 @@ class DescribeTaskQueueResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Temporal\Api\Taskqueue\V1\TaskQueueStatus::class);
         $this->task_queue_status = $var;
+
+        return $this;
+    }
+
+    /**
+     * This map contains Task Queue information for each Build ID. Empty string as key value means unversioned.
+     * Only set in `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>map<string, .temporal.api.taskqueue.v1.TaskQueueVersionInfo> versions_info = 3;</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getVersionsInfo()
+    {
+        return $this->versions_info;
+    }
+
+    /**
+     * This map contains Task Queue information for each Build ID. Empty string as key value means unversioned.
+     * Only set in `ENHANCED` mode.
+     *
+     * Generated from protobuf field <code>map<string, .temporal.api.taskqueue.v1.TaskQueueVersionInfo> versions_info = 3;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setVersionsInfo($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Temporal\Api\Taskqueue\V1\TaskQueueVersionInfo::class);
+        $this->versions_info = $arr;
 
         return $this;
     }

@@ -41,6 +41,7 @@ class WorkflowTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      */
@@ -77,6 +78,7 @@ class WorkflowTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
      *           Version info of the worker who processed this workflow task. If present, the `build_id` field
      *           within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      *           populated to preserve compatibility).
+     *           Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *     @type \Temporal\Api\Sdk\V1\WorkflowTaskCompletedMetadata $sdk_metadata
      *           Data the SDK wishes to record for itself, but server need not interpret, and does not
      *           directly impact workflow state.
@@ -197,6 +199,7 @@ class WorkflowTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
@@ -220,6 +223,7 @@ class WorkflowTaskCompletedEventAttributes extends \Google\Protobuf\Internal\Mes
      * Version info of the worker who processed this workflow task. If present, the `build_id` field
      * within is also used as `binary_checksum`, which may be omitted in that case (it may also be
      * populated to preserve compatibility).
+     * Deprecated. Use the info inside the corresponding WorkflowTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 5;</code>
      * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var
