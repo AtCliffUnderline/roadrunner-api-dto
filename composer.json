@@ -38,7 +38,7 @@
     "google/common-protos": "Required for Temporal API"
   },
   "conflict": {
-    "temporal/sdk": "<2.6.0"
+    "temporal/sdk": "<2.9.0"
   },
   "scripts": {
     "build": "./generate.sh"
