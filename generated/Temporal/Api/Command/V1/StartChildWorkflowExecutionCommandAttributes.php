@@ -90,13 +90,12 @@ class StartChildWorkflowExecutionCommandAttributes extends \Google\Protobuf\Inte
      */
     protected $search_attributes = null;
     /**
-     * If this is set, the workflow executing this command wishes to start the child workflow using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the child workflow inherits the Build ID of the parent. Otherwise, the assignment
+     * rules of the child's Task Queue will be used to independently assign a Build ID to it.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 17;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 17;</code>
      */
-    protected $use_compatible_version = false;
+    protected $inherit_build_id = false;
 
     /**
      * Constructor.
@@ -126,10 +125,9 @@ class StartChildWorkflowExecutionCommandAttributes extends \Google\Protobuf\Inte
      *     @type \Temporal\Api\Common\V1\Header $header
      *     @type \Temporal\Api\Common\V1\Memo $memo
      *     @type \Temporal\Api\Common\V1\SearchAttributes $search_attributes
-     *     @type bool $use_compatible_version
-     *           If this is set, the workflow executing this command wishes to start the child workflow using
-     *           a version compatible with the version that this workflow most recently ran on, if such
-     *           behavior is possible.
+     *     @type bool $inherit_build_id
+     *           If this is set, the child workflow inherits the Build ID of the parent. Otherwise, the assignment
+     *           rules of the child's Task Queue will be used to independently assign a Build ID to it.
      * }
      */
     public function __construct($data = NULL) {
@@ -614,31 +612,29 @@ class StartChildWorkflowExecutionCommandAttributes extends \Google\Protobuf\Inte
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to start the child workflow using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the child workflow inherits the Build ID of the parent. Otherwise, the assignment
+     * rules of the child's Task Queue will be used to independently assign a Build ID to it.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 17;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 17;</code>
      * @return bool
      */
-    public function getUseCompatibleVersion()
+    public function getInheritBuildId()
     {
-        return $this->use_compatible_version;
+        return $this->inherit_build_id;
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to start the child workflow using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the child workflow inherits the Build ID of the parent. Otherwise, the assignment
+     * rules of the child's Task Queue will be used to independently assign a Build ID to it.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 17;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 17;</code>
      * @param bool $var
      * @return $this
      */
-    public function setUseCompatibleVersion($var)
+    public function setInheritBuildId($var)
     {
         GPBUtil::checkBool($var);
-        $this->use_compatible_version = $var;
+        $this->inherit_build_id = $var;
 
         return $this;
     }

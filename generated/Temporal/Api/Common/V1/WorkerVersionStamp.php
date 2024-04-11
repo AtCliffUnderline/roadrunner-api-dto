@@ -23,13 +23,6 @@ class WorkerVersionStamp extends \Google\Protobuf\Internal\Message
      */
     protected $build_id = '';
     /**
-     * Set if the worker used a dynamically loadable bundle to process
-     * the task. The bundle could be a WASM blob, JS bundle, etc.
-     *
-     * Generated from protobuf field <code>string bundle_id = 2;</code>
-     */
-    protected $bundle_id = '';
-    /**
      * If set, the worker is opting in to worker versioning. Otherwise, this is used only as a
      * marker for workflow reset points and the BuildIDs search attribute.
      *
@@ -46,9 +39,6 @@ class WorkerVersionStamp extends \Google\Protobuf\Internal\Message
      *     @type string $build_id
      *           An opaque whole-worker identifier. Replaces the deprecated `binary_checksum` field when this
      *           message is included in requests which previously used that.
-     *     @type string $bundle_id
-     *           Set if the worker used a dynamically loadable bundle to process
-     *           the task. The bundle could be a WASM blob, JS bundle, etc.
      *     @type bool $use_versioning
      *           If set, the worker is opting in to worker versioning. Otherwise, this is used only as a
      *           marker for workflow reset points and the BuildIDs search attribute.
@@ -83,34 +73,6 @@ class WorkerVersionStamp extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->build_id = $var;
-
-        return $this;
-    }
-
-    /**
-     * Set if the worker used a dynamically loadable bundle to process
-     * the task. The bundle could be a WASM blob, JS bundle, etc.
-     *
-     * Generated from protobuf field <code>string bundle_id = 2;</code>
-     * @return string
-     */
-    public function getBundleId()
-    {
-        return $this->bundle_id;
-    }
-
-    /**
-     * Set if the worker used a dynamically loadable bundle to process
-     * the task. The bundle could be a WASM blob, JS bundle, etc.
-     *
-     * Generated from protobuf field <code>string bundle_id = 2;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setBundleId($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->bundle_id = $var;
 
         return $this;
     }

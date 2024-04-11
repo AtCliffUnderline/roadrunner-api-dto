@@ -9,6 +9,7 @@ use UnexpectedValueException;
 /**
  * Specifies which category of tasks may reach a worker on a versioned task queue.
  * Used both in a reachability query and its response.
+ * Deprecated.
  *
  * Protobuf type <code>temporal.api.enums.v1.TaskReachability</code>
  */

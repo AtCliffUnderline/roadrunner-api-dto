@@ -759,7 +759,10 @@ class WorkflowServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * DescribeTaskQueue returns information about the target task queue.
+     * DescribeTaskQueue returns the following information about the target task queue, broken down by Build ID:
+     *   - List of pollers
+     *   - Workflow Reachability status
+     *   - Backlog info for Workflow and/or Activity tasks
      * @param \Temporal\Api\Workflowservice\V1\DescribeTaskQueueRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -925,6 +928,8 @@ class WorkflowServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Deprecated. Use `UpdateWorkerVersioningRules`.
+     *
      * Allows users to specify sets of worker build id versions on a per task queue basis. Versions
      * are ordered, and may be either compatible with some extant version, or a new incompatible
      * version, forming sets of ids which are incompatible with each other, but whose contained
@@ -954,6 +959,7 @@ class WorkflowServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Deprecated. Use `GetWorkerVersioningRules`.
      * Fetches the worker build id versioning sets for a task queue.
      * @param \Temporal\Api\Workflowservice\V1\GetWorkerBuildIdCompatibilityRequest $argument input argument
      * @param array $metadata metadata
@@ -969,6 +975,42 @@ class WorkflowServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Allows updating the Build ID assignment and redirect rules for a given Task Queue.
+     * WARNING: Worker Versioning is not yet stable and the API and behavior may change incompatibly.
+     * (-- api-linter: core::0127::http-annotation=disabled
+     *     aip.dev/not-precedent: We do yet expose versioning API to HTTP. --)
+     * @param \Temporal\Api\Workflowservice\V1\UpdateWorkerVersioningRulesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function UpdateWorkerVersioningRules(\Temporal\Api\Workflowservice\V1\UpdateWorkerVersioningRulesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/temporal.api.workflowservice.v1.WorkflowService/UpdateWorkerVersioningRules',
+        $argument,
+        ['\Temporal\Api\Workflowservice\V1\UpdateWorkerVersioningRulesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Fetches the Build ID assignment and redirect rules for a Task Queue.
+     * WARNING: Worker Versioning is not yet stable and the API and behavior may change incompatibly.
+     * @param \Temporal\Api\Workflowservice\V1\GetWorkerVersioningRulesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetWorkerVersioningRules(\Temporal\Api\Workflowservice\V1\GetWorkerVersioningRulesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/temporal.api.workflowservice.v1.WorkflowService/GetWorkerVersioningRules',
+        $argument,
+        ['\Temporal\Api\Workflowservice\V1\GetWorkerVersioningRulesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Deprecated. Use `DescribeTaskQueue`.
+     *
      * Fetches task reachability to determine whether a worker may be retired.
      * The request may specify task queues to query for or let the server fetch all task queues mapped to the given
      * build IDs.

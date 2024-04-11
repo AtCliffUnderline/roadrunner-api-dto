@@ -31,6 +31,12 @@ class ListSchedulesRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bytes next_page_token = 3;</code>
      */
     protected $next_page_token = '';
+    /**
+     * Query to filter schedules.
+     *
+     * Generated from protobuf field <code>string query = 4;</code>
+     */
+    protected $query = '';
 
     /**
      * Constructor.
@@ -44,6 +50,8 @@ class ListSchedulesRequest extends \Google\Protobuf\Internal\Message
      *           How many to return at once.
      *     @type string $next_page_token
      *           Token to get the next page of results.
+     *     @type string $query
+     *           Query to filter schedules.
      * }
      */
     public function __construct($data = NULL) {
@@ -125,6 +133,32 @@ class ListSchedulesRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, False);
         $this->next_page_token = $var;
+
+        return $this;
+    }
+
+    /**
+     * Query to filter schedules.
+     *
+     * Generated from protobuf field <code>string query = 4;</code>
+     * @return string
+     */
+    public function getQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * Query to filter schedules.
+     *
+     * Generated from protobuf field <code>string query = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setQuery($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->query = $var;
 
         return $this;
     }

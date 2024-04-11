@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Deprecated. Use `DescribeTaskQueue`.
+ *
  * Generated from protobuf message <code>temporal.api.workflowservice.v1.GetWorkerTaskReachabilityRequest</code>
  */
 class GetWorkerTaskReachabilityRequest extends \Google\Protobuf\Internal\Message

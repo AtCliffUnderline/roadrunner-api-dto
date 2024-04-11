@@ -118,7 +118,7 @@ class HistoryEvent extends \Google\Protobuf\Internal\Message
      *     @type \Temporal\Api\History\V1\WorkflowPropertiesModifiedExternallyEventAttributes $workflow_properties_modified_externally_event_attributes
      *     @type \Temporal\Api\History\V1\ActivityPropertiesModifiedExternallyEventAttributes $activity_properties_modified_externally_event_attributes
      *     @type \Temporal\Api\History\V1\WorkflowPropertiesModifiedEventAttributes $workflow_properties_modified_event_attributes
-     *     @type \Temporal\Api\History\V1\WorkflowExecutionUpdateRequestedEventAttributes $workflow_execution_update_requested_event_attributes
+     *     @type \Temporal\Api\History\V1\WorkflowExecutionUpdateAdmittedEventAttributes $workflow_execution_update_admitted_event_attributes
      * }
      */
     public function __construct($data = NULL) {
@@ -1533,27 +1533,27 @@ class HistoryEvent extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.temporal.api.history.v1.WorkflowExecutionUpdateRequestedEventAttributes workflow_execution_update_requested_event_attributes = 52;</code>
-     * @return \Temporal\Api\History\V1\WorkflowExecutionUpdateRequestedEventAttributes|null
+     * Generated from protobuf field <code>.temporal.api.history.v1.WorkflowExecutionUpdateAdmittedEventAttributes workflow_execution_update_admitted_event_attributes = 52;</code>
+     * @return \Temporal\Api\History\V1\WorkflowExecutionUpdateAdmittedEventAttributes|null
      */
-    public function getWorkflowExecutionUpdateRequestedEventAttributes()
+    public function getWorkflowExecutionUpdateAdmittedEventAttributes()
     {
         return $this->readOneof(52);
     }
 
-    public function hasWorkflowExecutionUpdateRequestedEventAttributes()
+    public function hasWorkflowExecutionUpdateAdmittedEventAttributes()
     {
         return $this->hasOneof(52);
     }
 
     /**
-     * Generated from protobuf field <code>.temporal.api.history.v1.WorkflowExecutionUpdateRequestedEventAttributes workflow_execution_update_requested_event_attributes = 52;</code>
-     * @param \Temporal\Api\History\V1\WorkflowExecutionUpdateRequestedEventAttributes $var
+     * Generated from protobuf field <code>.temporal.api.history.v1.WorkflowExecutionUpdateAdmittedEventAttributes workflow_execution_update_admitted_event_attributes = 52;</code>
+     * @param \Temporal\Api\History\V1\WorkflowExecutionUpdateAdmittedEventAttributes $var
      * @return $this
      */
-    public function setWorkflowExecutionUpdateRequestedEventAttributes($var)
+    public function setWorkflowExecutionUpdateAdmittedEventAttributes($var)
     {
-        GPBUtil::checkMessage($var, \Temporal\Api\History\V1\WorkflowExecutionUpdateRequestedEventAttributes::class);
+        GPBUtil::checkMessage($var, \Temporal\Api\History\V1\WorkflowExecutionUpdateAdmittedEventAttributes::class);
         $this->writeOneof(52, $var);
 
         return $this;

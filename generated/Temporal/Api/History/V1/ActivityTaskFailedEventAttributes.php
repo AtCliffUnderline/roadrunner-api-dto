@@ -43,6 +43,7 @@ class ActivityTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
     protected $retry_state = 0;
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
      */
@@ -65,6 +66,7 @@ class ActivityTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
      *     @type int $retry_state
      *     @type \Temporal\Api\Common\V1\WorkerVersionStamp $worker_version
      *           Version info of the worker who processed this workflow task.
+     *           Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      * }
      */
     public function __construct($data = NULL) {
@@ -210,6 +212,7 @@ class ActivityTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
 
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
      * @return \Temporal\Api\Common\V1\WorkerVersionStamp|null
@@ -231,6 +234,7 @@ class ActivityTaskFailedEventAttributes extends \Google\Protobuf\Internal\Messag
 
     /**
      * Version info of the worker who processed this workflow task.
+     * Deprecated. Use the info inside the corresponding ActivityTaskStartedEvent
      *
      * Generated from protobuf field <code>.temporal.api.common.v1.WorkerVersionStamp worker_version = 6;</code>
      * @param \Temporal\Api\Common\V1\WorkerVersionStamp $var

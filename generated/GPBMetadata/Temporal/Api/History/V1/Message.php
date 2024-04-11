@@ -28,8 +28,8 @@ class Message
         \GPBMetadata\Temporal\Api\Sdk\V1\TaskCompleteMetadata::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ае
-%temporal/api/history/v1/message.prototemporal.api.history.v1google/protobuf/timestamp.proto&temporal/api/enums/v1/event_type.proto(temporal/api/enums/v1/failed_cause.proto"temporal/api/enums/v1/update.proto$temporal/api/enums/v1/workflow.proto$temporal/api/common/v1/message.proto%temporal/api/failure/v1/message.proto\'temporal/api/taskqueue/v1/message.proto$temporal/api/update/v1/message.proto&temporal/api/workflow/v1/message.proto0temporal/api/sdk/v1/task_complete_metadata.proto"С
+┼з
+%temporal/api/history/v1/message.prototemporal.api.history.v1google/protobuf/timestamp.proto&temporal/api/enums/v1/event_type.proto(temporal/api/enums/v1/failed_cause.proto"temporal/api/enums/v1/update.proto$temporal/api/enums/v1/workflow.proto$temporal/api/common/v1/message.proto%temporal/api/failure/v1/message.proto\'temporal/api/taskqueue/v1/message.proto$temporal/api/update/v1/message.proto&temporal/api/workflow/v1/message.proto0temporal/api/sdk/v1/task_complete_metadata.proto"∙
 \'WorkflowExecutionStartedEventAttributes;
 workflow_type (2$.temporal.api.common.v1.WorkflowType!
 parent_workflow_namespace (	$
@@ -62,7 +62,9 @@ task_queue (2$.temporal.api.taskqueue.v1.TaskQueue/
 parent_initiated_event_version (
 workflow_id (	H
 source_version_stamp (2*.temporal.api.common.v1.WorkerVersionStamp>
-completion_callbacks (2 .temporal.api.common.v1.Callback"е
+completion_callbacks (2 .temporal.api.common.v1.CallbackJ
+root_workflow_execution (2).temporal.api.common.v1.WorkflowExecution
+inherited_build_id  (	"е
 )WorkflowExecutionCompletedEventAttributes0
 result (2 .temporal.api.common.v1.Payloads(
  workflow_task_completed_event_id (
@@ -74,7 +76,7 @@ task_queue (2$.temporal.api.taskqueue.v1.TaskQueue/
 new_execution_run_id (	"А
 (WorkflowExecutionTimedOutEventAttributes6
 retry_state (2!.temporal.api.enums.v1.RetryState
-new_execution_run_id (	"╞
+new_execution_run_id (	"└
 .WorkflowExecutionContinuedAsNewEventAttributes
 new_execution_run_id (	;
 workflow_type (2$.temporal.api.common.v1.WorkflowType8
@@ -91,20 +93,22 @@ task_queue (2$.temporal.api.taskqueue.v1.TaskQueue/
 last_completion_result (2 .temporal.api.common.v1.Payloads.
 header (2.temporal.api.common.v1.Header*
 memo (2.temporal.api.common.v1.MemoC
-search_attributes (2(.temporal.api.common.v1.SearchAttributes
-use_compatible_version ("м
+search_attributes (2(.temporal.api.common.v1.SearchAttributes
+inherit_build_id ("м
 $WorkflowTaskScheduledEventAttributes8
 
 task_queue (2$.temporal.api.taskqueue.v1.TaskQueue9
 start_to_close_timeout (2.google.protobuf.Duration
-attempt ("г
+attempt ("К
 "WorkflowTaskStartedEventAttributes
 scheduled_event_id (
 identity (	
 
 request_id (	
 suggest_continue_as_new (
-history_size_bytes ("┌
+history_size_bytes (B
+worker_version (2*.temporal.api.common.v1.WorkerVersionStamp!
+build_id_redirect_counter ("┌
 $WorkflowTaskCompletedEventAttributes
 scheduled_event_id (
 started_event_id (
@@ -129,7 +133,7 @@ new_run_id (	
 fork_event_version (
 binary_checksum	 (	B
 worker_version
- (2*.temporal.api.common.v1.WorkerVersionStamp"Л
+ (2*.temporal.api.common.v1.WorkerVersionStamp"К
 $ActivityTaskScheduledEventAttributes
 activity_id (	;
 activity_type (2$.temporal.api.common.v1.ActivityType8
@@ -143,15 +147,17 @@ task_queue (2$.temporal.api.taskqueue.v1.TaskQueue.
 heartbeat_timeout
  (2.google.protobuf.Duration(
  workflow_task_completed_event_id (9
-retry_policy (2#.temporal.api.common.v1.RetryPolicy
-use_compatible_version (J"п
+retry_policy (2#.temporal.api.common.v1.RetryPolicy
+use_workflow_build_id (J"Ц
 "ActivityTaskStartedEventAttributes
 scheduled_event_id (
 identity (	
 
 request_id (	
 attempt (6
-last_failure (2 .temporal.api.failure.v1.Failure"ф
+last_failure (2 .temporal.api.failure.v1.FailureB
+worker_version (2*.temporal.api.common.v1.WorkerVersionStamp!
+build_id_redirect_counter ("ф
 $ActivityTaskCompletedEventAttributes0
 result (2 .temporal.api.common.v1.Payloads
 scheduled_event_id (
@@ -270,7 +276,7 @@ $ActivityTaskCompletedEventAttributes0
 search_attributes (2(.temporal.api.common.v1.SearchAttributes"К
 )WorkflowPropertiesModifiedEventAttributes(
  workflow_task_completed_event_id (3
-upserted_memo (2.temporal.api.common.v1.Memo"▓
+upserted_memo (2.temporal.api.common.v1.Memo"м
 3StartChildWorkflowExecutionInitiatedEventAttributes
 	namespace (	
 namespace_id (	
@@ -291,8 +297,8 @@ task_queue (2$.temporal.api.taskqueue.v1.TaskQueue/
 cron_schedule (	.
 header (2.temporal.api.common.v1.Header*
 memo (2.temporal.api.common.v1.MemoC
-search_attributes (2(.temporal.api.common.v1.SearchAttributes
-use_compatible_version ("╥
+search_attributes (2(.temporal.api.common.v1.SearchAttributes
+inherit_build_id ("╥
 0StartChildWorkflowExecutionFailedEventAttributes
 	namespace (	
 namespace_id (	
@@ -372,10 +378,10 @@ $accepted_request_sequencing_event_id (9
 rejected_request_message_id (	,
 $rejected_request_sequencing_event_id (9
 rejected_request (2.temporal.api.update.v1.Request1
-failure (2 .temporal.api.failure.v1.Failure"ж
-/WorkflowExecutionUpdateRequestedEventAttributes0
-request (2.temporal.api.update.v1.RequestA
-origin (21.temporal.api.enums.v1.UpdateRequestedEventOrigin"ъ0
+failure (2 .temporal.api.failure.v1.Failure"д
+.WorkflowExecutionUpdateAdmittedEventAttributes0
+request (2.temporal.api.update.v1.Request@
+origin (20.temporal.api.enums.v1.UpdateAdmittedEventOrigin"ш0
 HistoryEvent
 event_id (.
 
@@ -431,8 +437,8 @@ Brequest_cancel_external_workflow_execution_failed_event_attributes (2T.temp
 4workflow_execution_update_completed_event_attributes0 (2H.temporal.api.history.v1.WorkflowExecutionUpdateCompletedEventAttributesH Р
 8workflow_properties_modified_externally_event_attributes1 (2L.temporal.api.history.v1.WorkflowPropertiesModifiedExternallyEventAttributesH Р
 8activity_properties_modified_externally_event_attributes2 (2L.temporal.api.history.v1.ActivityPropertiesModifiedExternallyEventAttributesH {
--workflow_properties_modified_event_attributes3 (2B.temporal.api.history.v1.WorkflowPropertiesModifiedEventAttributesH И
-4workflow_execution_update_requested_event_attributes4 (2H.temporal.api.history.v1.WorkflowExecutionUpdateRequestedEventAttributesH B
+-workflow_properties_modified_event_attributes3 (2B.temporal.api.history.v1.WorkflowPropertiesModifiedEventAttributesH Ж
+3workflow_execution_update_admitted_event_attributes4 (2G.temporal.api.history.v1.WorkflowExecutionUpdateAdmittedEventAttributesH B
 
 attributes"@
 History5

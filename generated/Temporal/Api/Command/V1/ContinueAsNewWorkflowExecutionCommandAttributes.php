@@ -84,12 +84,12 @@ class ContinueAsNewWorkflowExecutionCommandAttributes extends \Google\Protobuf\I
      */
     protected $search_attributes = null;
     /**
-     * If this is set, the workflow executing this command wishes to continue as new using a version
-     * compatible with the version that this workflow most recently ran on.
+     * If this is set, the new execution inherits the Build ID of the current execution. Otherwise,
+     * the assignment rules will be used to independently assign a Build ID to the new execution.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 15;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 15;</code>
      */
-    protected $use_compatible_version = false;
+    protected $inherit_build_id = false;
 
     /**
      * Constructor.
@@ -118,9 +118,9 @@ class ContinueAsNewWorkflowExecutionCommandAttributes extends \Google\Protobuf\I
      *     @type \Temporal\Api\Common\V1\Header $header
      *     @type \Temporal\Api\Common\V1\Memo $memo
      *     @type \Temporal\Api\Common\V1\SearchAttributes $search_attributes
-     *     @type bool $use_compatible_version
-     *           If this is set, the workflow executing this command wishes to continue as new using a version
-     *           compatible with the version that this workflow most recently ran on.
+     *     @type bool $inherit_build_id
+     *           If this is set, the new execution inherits the Build ID of the current execution. Otherwise,
+     *           the assignment rules will be used to independently assign a Build ID to the new execution.
      * }
      */
     public function __construct($data = NULL) {
@@ -585,29 +585,29 @@ class ContinueAsNewWorkflowExecutionCommandAttributes extends \Google\Protobuf\I
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to continue as new using a version
-     * compatible with the version that this workflow most recently ran on.
+     * If this is set, the new execution inherits the Build ID of the current execution. Otherwise,
+     * the assignment rules will be used to independently assign a Build ID to the new execution.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 15;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 15;</code>
      * @return bool
      */
-    public function getUseCompatibleVersion()
+    public function getInheritBuildId()
     {
-        return $this->use_compatible_version;
+        return $this->inherit_build_id;
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to continue as new using a version
-     * compatible with the version that this workflow most recently ran on.
+     * If this is set, the new execution inherits the Build ID of the current execution. Otherwise,
+     * the assignment rules will be used to independently assign a Build ID to the new execution.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 15;</code>
+     * Generated from protobuf field <code>bool inherit_build_id = 15;</code>
      * @param bool $var
      * @return $this
      */
-    public function setUseCompatibleVersion($var)
+    public function setInheritBuildId($var)
     {
         GPBUtil::checkBool($var);
-        $this->use_compatible_version = $var;
+        $this->inherit_build_id = $var;
 
         return $this;
     }

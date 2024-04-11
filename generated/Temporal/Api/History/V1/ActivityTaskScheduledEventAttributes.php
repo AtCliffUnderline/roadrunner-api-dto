@@ -86,13 +86,12 @@ class ActivityTaskScheduledEventAttributes extends \Google\Protobuf\Internal\Mes
      */
     protected $retry_policy = null;
     /**
-     * If this is set, the workflow executing this command wishes to start the activity using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the activity would be assigned to the Build ID of the workflow. Otherwise,
+     * Assignment rules of the activity's Task Queue will be used to determine the Build ID.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 13;</code>
+     * Generated from protobuf field <code>bool use_workflow_build_id = 13;</code>
      */
-    protected $use_compatible_version = false;
+    protected $use_workflow_build_id = false;
 
     /**
      * Constructor.
@@ -132,10 +131,9 @@ class ActivityTaskScheduledEventAttributes extends \Google\Protobuf\Internal\Mes
      *           Activities are assigned a default retry policy controlled by the service's dynamic
      *           configuration. Retries will happen up to `schedule_to_close_timeout`. To disable retries set
      *           retry_policy.maximum_attempts to 1.
-     *     @type bool $use_compatible_version
-     *           If this is set, the workflow executing this command wishes to start the activity using
-     *           a version compatible with the version that this workflow most recently ran on, if such
-     *           behavior is possible.
+     *     @type bool $use_workflow_build_id
+     *           If this is set, the activity would be assigned to the Build ID of the workflow. Otherwise,
+     *           Assignment rules of the activity's Task Queue will be used to determine the Build ID.
      * }
      */
     public function __construct($data = NULL) {
@@ -532,31 +530,29 @@ class ActivityTaskScheduledEventAttributes extends \Google\Protobuf\Internal\Mes
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to start the activity using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the activity would be assigned to the Build ID of the workflow. Otherwise,
+     * Assignment rules of the activity's Task Queue will be used to determine the Build ID.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 13;</code>
+     * Generated from protobuf field <code>bool use_workflow_build_id = 13;</code>
      * @return bool
      */
-    public function getUseCompatibleVersion()
+    public function getUseWorkflowBuildId()
     {
-        return $this->use_compatible_version;
+        return $this->use_workflow_build_id;
     }
 
     /**
-     * If this is set, the workflow executing this command wishes to start the activity using
-     * a version compatible with the version that this workflow most recently ran on, if such
-     * behavior is possible.
+     * If this is set, the activity would be assigned to the Build ID of the workflow. Otherwise,
+     * Assignment rules of the activity's Task Queue will be used to determine the Build ID.
      *
-     * Generated from protobuf field <code>bool use_compatible_version = 13;</code>
+     * Generated from protobuf field <code>bool use_workflow_build_id = 13;</code>
      * @param bool $var
      * @return $this
      */
-    public function setUseCompatibleVersion($var)
+    public function setUseWorkflowBuildId($var)
     {
         GPBUtil::checkBool($var);
-        $this->use_compatible_version = $var;
+        $this->use_workflow_build_id = $var;
 
         return $this;
     }
