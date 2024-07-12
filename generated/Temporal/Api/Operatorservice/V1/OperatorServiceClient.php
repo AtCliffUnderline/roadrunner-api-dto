@@ -154,171 +154,86 @@ class OperatorServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Get a registered incoming Nexus service by ID. The returned version can be used for optimistic updates.
-     * @param \Temporal\Api\Operatorservice\V1\GetNexusIncomingServiceRequest $argument input argument
+     * Get a registered Nexus endpoint by ID. The returned version can be used for optimistic updates.
+     * @param \Temporal\Api\Operatorservice\V1\GetNexusEndpointRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function GetNexusIncomingService(\Temporal\Api\Operatorservice\V1\GetNexusIncomingServiceRequest $argument,
+    public function GetNexusEndpoint(\Temporal\Api\Operatorservice\V1\GetNexusEndpointRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/GetNexusIncomingService',
+        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/GetNexusEndpoint',
         $argument,
-        ['\Temporal\Api\Operatorservice\V1\GetNexusIncomingServiceResponse', 'decode'],
+        ['\Temporal\Api\Operatorservice\V1\GetNexusEndpointResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * Create a Nexus service. This will fail if a service with the same name already exists in the namespace with a
-     * status of ALREADY_EXISTS.
-     * Returns the created service with its initial version. You may use this version for subsequent updates.
-     * @param \Temporal\Api\Operatorservice\V1\CreateNexusIncomingServiceRequest $argument input argument
+     * Create a Nexus endpoint. This will fail if an endpoint with the same name is already registered with a status of
+     * ALREADY_EXISTS.
+     * Returns the created endpoint with its initial version. You may use this version for subsequent updates.
+     * @param \Temporal\Api\Operatorservice\V1\CreateNexusEndpointRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CreateNexusIncomingService(\Temporal\Api\Operatorservice\V1\CreateNexusIncomingServiceRequest $argument,
+    public function CreateNexusEndpoint(\Temporal\Api\Operatorservice\V1\CreateNexusEndpointRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/CreateNexusIncomingService',
+        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/CreateNexusEndpoint',
         $argument,
-        ['\Temporal\Api\Operatorservice\V1\CreateNexusIncomingServiceResponse', 'decode'],
+        ['\Temporal\Api\Operatorservice\V1\CreateNexusEndpointResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * Optimistically update a Nexus service based on provided version as obtained via the
-     * `GetNexusIncomingService` or `ListNexusOutgoingServicesResponse` APIs. This will fail with a status of
-     * FAILED_PRECONDITION if the version does not match.
-     * Returns the updated service with its updated version. You may use this version for subsequent updates. You don't
+     * Optimistically update a Nexus endpoint based on provided version as obtained via the `GetNexusEndpoint` or
+     * `ListNexusEndpointResponse` APIs. This will fail with a status of FAILED_PRECONDITION if the version does not
+     * match.
+     * Returns the updated endpoint with its updated version. You may use this version for subsequent updates. You don't
      * need to increment the version yourself. The server will increment the version for you after each update.
-     * @param \Temporal\Api\Operatorservice\V1\UpdateNexusIncomingServiceRequest $argument input argument
+     * @param \Temporal\Api\Operatorservice\V1\UpdateNexusEndpointRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function UpdateNexusIncomingService(\Temporal\Api\Operatorservice\V1\UpdateNexusIncomingServiceRequest $argument,
+    public function UpdateNexusEndpoint(\Temporal\Api\Operatorservice\V1\UpdateNexusEndpointRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/UpdateNexusIncomingService',
+        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/UpdateNexusEndpoint',
         $argument,
-        ['\Temporal\Api\Operatorservice\V1\UpdateNexusIncomingServiceResponse', 'decode'],
+        ['\Temporal\Api\Operatorservice\V1\UpdateNexusEndpointResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
      * Delete an incoming Nexus service by ID.
-     * @param \Temporal\Api\Operatorservice\V1\DeleteNexusIncomingServiceRequest $argument input argument
+     * @param \Temporal\Api\Operatorservice\V1\DeleteNexusEndpointRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function DeleteNexusIncomingService(\Temporal\Api\Operatorservice\V1\DeleteNexusIncomingServiceRequest $argument,
+    public function DeleteNexusEndpoint(\Temporal\Api\Operatorservice\V1\DeleteNexusEndpointRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/DeleteNexusIncomingService',
+        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/DeleteNexusEndpoint',
         $argument,
-        ['\Temporal\Api\Operatorservice\V1\DeleteNexusIncomingServiceResponse', 'decode'],
+        ['\Temporal\Api\Operatorservice\V1\DeleteNexusEndpointResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * List all Nexus incoming services for the cluster, sorted by service ID in ascending order. Set page_token in the
-     * request to the next_page_token field of the previous response to get the next page of results. An empty
-     * next_page_token indicates that there are no more results. During pagination, a newly added service with an ID
-     * lexicographically earlier than the previous page's last service name may be missed.
-     * @param \Temporal\Api\Operatorservice\V1\ListNexusIncomingServicesRequest $argument input argument
+     * List all Nexus endpoints for the cluster, sorted by ID in ascending order. Set page_token in the request to the
+     * next_page_token field of the previous response to get the next page of results. An empty next_page_token
+     * indicates that there are no more results. During pagination, a newly added service with an ID lexicographically
+     * earlier than the previous page's last endpoint's ID may be missed.
+     * @param \Temporal\Api\Operatorservice\V1\ListNexusEndpointsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ListNexusIncomingServices(\Temporal\Api\Operatorservice\V1\ListNexusIncomingServicesRequest $argument,
+    public function ListNexusEndpoints(\Temporal\Api\Operatorservice\V1\ListNexusEndpointsRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/ListNexusIncomingServices',
+        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/ListNexusEndpoints',
         $argument,
-        ['\Temporal\Api\Operatorservice\V1\ListNexusIncomingServicesResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * Get a registered outgoing Nexus service by namespace and service name. The returned version can be used for
-     * optimistic updates.
-     * @param \Temporal\Api\Operatorservice\V1\GetNexusOutgoingServiceRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function GetNexusOutgoingService(\Temporal\Api\Operatorservice\V1\GetNexusOutgoingServiceRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/GetNexusOutgoingService',
-        $argument,
-        ['\Temporal\Api\Operatorservice\V1\GetNexusOutgoingServiceResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * Create a Nexus service. This will fail if a service with the same name already exists in the namespace with a
-     * status of ALREADY_EXISTS.
-     * Returns the created service with its initial version. You may use this version for subsequent updates. You don't
-     * need to increment the version yourself. The server will increment the version for you after each update.
-     * @param \Temporal\Api\Operatorservice\V1\CreateNexusOutgoingServiceRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function CreateNexusOutgoingService(\Temporal\Api\Operatorservice\V1\CreateNexusOutgoingServiceRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/CreateNexusOutgoingService',
-        $argument,
-        ['\Temporal\Api\Operatorservice\V1\CreateNexusOutgoingServiceResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * Update an outgoing Nexus service by namespace and service name. The version in the request should match the
-     * current version of the service. This will fail with a status of FAILED_PRECONDITION if the version does not match.
-     * Returns the updated service with the updated version, which can be used for subsequent updates. You don't need
-     * to increment the version yourself. The server will increment the version for you.
-     * @param \Temporal\Api\Operatorservice\V1\UpdateNexusOutgoingServiceRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function UpdateNexusOutgoingService(\Temporal\Api\Operatorservice\V1\UpdateNexusOutgoingServiceRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/UpdateNexusOutgoingService',
-        $argument,
-        ['\Temporal\Api\Operatorservice\V1\UpdateNexusOutgoingServiceResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * Delete an outgoing Nexus service by namespace and service name.
-     * @param \Temporal\Api\Operatorservice\V1\DeleteNexusOutgoingServiceRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function DeleteNexusOutgoingService(\Temporal\Api\Operatorservice\V1\DeleteNexusOutgoingServiceRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/DeleteNexusOutgoingService',
-        $argument,
-        ['\Temporal\Api\Operatorservice\V1\DeleteNexusOutgoingServiceResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * List all Nexus outgoing services for a namespace, sorted by service name in ascending order. Set page_token in
-     * the request to the next_page_token field of the previous response to get the next page of results. An empty
-     * next_page_token indicates that there are no more results. During pagination, a newly added service with a name
-     * lexicographically earlier than the previous page's last service name may be missed.
-     * @param \Temporal\Api\Operatorservice\V1\ListNexusOutgoingServicesRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function ListNexusOutgoingServices(\Temporal\Api\Operatorservice\V1\ListNexusOutgoingServicesRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/temporal.api.operatorservice.v1.OperatorService/ListNexusOutgoingServices',
-        $argument,
-        ['\Temporal\Api\Operatorservice\V1\ListNexusOutgoingServicesResponse', 'decode'],
+        ['\Temporal\Api\Operatorservice\V1\ListNexusEndpointsResponse', 'decode'],
         $metadata, $options);
     }
 
