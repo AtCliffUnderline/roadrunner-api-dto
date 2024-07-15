@@ -64,6 +64,37 @@ class Message extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string run_id = 8;</code>
      */
     protected $run_id = '';
+    /**
+     * task queue name
+     *
+     * Generated from protobuf field <code>string task_queue = 9;</code>
+     */
+    protected $task_queue = '';
+    /**
+     * tick time
+     *
+     * Generated from protobuf field <code>string tick_time = 10;</code>
+     */
+    protected $tick_time = '';
+    /**
+     * replay flag
+     *
+     * Generated from protobuf field <code>bool replay = 11;</code>
+     */
+    protected $replay = false;
+    /**
+     * continue as new flag
+     *
+     * Generated from protobuf field <code>bool continue_as_new_suggested = 12;</code>
+     */
+    protected $continue_as_new_suggested = false;
+    /**
+     * returns the current length of history when called.
+     * This value may change throughout the life of the workflow.
+     *
+     * Generated from protobuf field <code>int64 history_size = 13;</code>
+     */
+    protected $history_size = 0;
 
     /**
      * Constructor.
@@ -87,6 +118,17 @@ class Message extends \Google\Protobuf\Internal\Message
      *           workflow history length
      *     @type string $run_id
      *           rr_run id
+     *     @type string $task_queue
+     *           task queue name
+     *     @type string $tick_time
+     *           tick time
+     *     @type bool $replay
+     *           replay flag
+     *     @type bool $continue_as_new_suggested
+     *           continue as new flag
+     *     @type int|string $history_size
+     *           returns the current length of history when called.
+     *           This value may change throughout the life of the workflow.
      * }
      */
     public function __construct($data = NULL) {
@@ -328,6 +370,138 @@ class Message extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->run_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * task queue name
+     *
+     * Generated from protobuf field <code>string task_queue = 9;</code>
+     * @return string
+     */
+    public function getTaskQueue()
+    {
+        return $this->task_queue;
+    }
+
+    /**
+     * task queue name
+     *
+     * Generated from protobuf field <code>string task_queue = 9;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTaskQueue($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->task_queue = $var;
+
+        return $this;
+    }
+
+    /**
+     * tick time
+     *
+     * Generated from protobuf field <code>string tick_time = 10;</code>
+     * @return string
+     */
+    public function getTickTime()
+    {
+        return $this->tick_time;
+    }
+
+    /**
+     * tick time
+     *
+     * Generated from protobuf field <code>string tick_time = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTickTime($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->tick_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * replay flag
+     *
+     * Generated from protobuf field <code>bool replay = 11;</code>
+     * @return bool
+     */
+    public function getReplay()
+    {
+        return $this->replay;
+    }
+
+    /**
+     * replay flag
+     *
+     * Generated from protobuf field <code>bool replay = 11;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setReplay($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->replay = $var;
+
+        return $this;
+    }
+
+    /**
+     * continue as new flag
+     *
+     * Generated from protobuf field <code>bool continue_as_new_suggested = 12;</code>
+     * @return bool
+     */
+    public function getContinueAsNewSuggested()
+    {
+        return $this->continue_as_new_suggested;
+    }
+
+    /**
+     * continue as new flag
+     *
+     * Generated from protobuf field <code>bool continue_as_new_suggested = 12;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setContinueAsNewSuggested($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->continue_as_new_suggested = $var;
+
+        return $this;
+    }
+
+    /**
+     * returns the current length of history when called.
+     * This value may change throughout the life of the workflow.
+     *
+     * Generated from protobuf field <code>int64 history_size = 13;</code>
+     * @return int|string
+     */
+    public function getHistorySize()
+    {
+        return $this->history_size;
+    }
+
+    /**
+     * returns the current length of history when called.
+     * This value may change throughout the life of the workflow.
+     *
+     * Generated from protobuf field <code>int64 history_size = 13;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setHistorySize($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->history_size = $var;
 
         return $this;
     }

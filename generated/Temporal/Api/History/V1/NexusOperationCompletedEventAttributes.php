@@ -29,6 +29,12 @@ class NexusOperationCompletedEventAttributes extends \Google\Protobuf\Internal\M
      * Generated from protobuf field <code>.temporal.api.common.v1.Payload result = 2;</code>
      */
     protected $result = null;
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     */
+    protected $request_id = '';
 
     /**
      * Constructor.
@@ -41,6 +47,8 @@ class NexusOperationCompletedEventAttributes extends \Google\Protobuf\Internal\M
      *     @type \Temporal\Api\Common\V1\Payload $result
      *           Serialized result of the Nexus operation. The response of the Nexus handler.
      *           Delivered either via a completion callback or as a response to a synchronous operation.
+     *     @type string $request_id
+     *           The request ID allocated at schedule time.
      * }
      */
     public function __construct($data = NULL) {
@@ -108,6 +116,32 @@ class NexusOperationCompletedEventAttributes extends \Google\Protobuf\Internal\M
     {
         GPBUtil::checkMessage($var, \Temporal\Api\Common\V1\Payload::class);
         $this->result = $var;
+
+        return $this;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->request_id;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRequestId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->request_id = $var;
 
         return $this;
     }

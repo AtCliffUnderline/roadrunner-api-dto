@@ -28,6 +28,12 @@ class NexusOperationTimedOutEventAttributes extends \Google\Protobuf\Internal\Me
      * Generated from protobuf field <code>.temporal.api.failure.v1.Failure failure = 2;</code>
      */
     protected $failure = null;
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     */
+    protected $request_id = '';
 
     /**
      * Constructor.
@@ -39,6 +45,8 @@ class NexusOperationTimedOutEventAttributes extends \Google\Protobuf\Internal\Me
      *           The ID of the `NEXUS_OPERATION_SCHEDULED` event. Uniquely identifies this operation.
      *     @type \Temporal\Api\Failure\V1\Failure $failure
      *           Failure details. A NexusOperationFailureInfo wrapping a CanceledFailureInfo.
+     *     @type string $request_id
+     *           The request ID allocated at schedule time.
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +112,32 @@ class NexusOperationTimedOutEventAttributes extends \Google\Protobuf\Internal\Me
     {
         GPBUtil::checkMessage($var, \Temporal\Api\Failure\V1\Failure::class);
         $this->failure = $var;
+
+        return $this;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->request_id;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRequestId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->request_id = $var;
 
         return $this;
     }

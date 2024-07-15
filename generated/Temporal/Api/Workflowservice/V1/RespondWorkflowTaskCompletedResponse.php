@@ -21,7 +21,7 @@ class RespondWorkflowTaskCompletedResponse extends \Google\Protobuf\Internal\Mes
      */
     protected $workflow_task = null;
     /**
-     * See `ScheduleActivityTaskCommandAttributes::request_start`
+     * See `ScheduleActivityTaskCommandAttributes::request_eager_execution`
      *
      * Generated from protobuf field <code>repeated .temporal.api.workflowservice.v1.PollActivityTaskQueueResponse activity_tasks = 2;</code>
      */
@@ -44,7 +44,7 @@ class RespondWorkflowTaskCompletedResponse extends \Google\Protobuf\Internal\Mes
      *     @type \Temporal\Api\Workflowservice\V1\PollWorkflowTaskQueueResponse $workflow_task
      *           See `RespondWorkflowTaskCompletedResponse::return_new_workflow_task`
      *     @type array<\Temporal\Api\Workflowservice\V1\PollActivityTaskQueueResponse>|\Google\Protobuf\Internal\RepeatedField $activity_tasks
-     *           See `ScheduleActivityTaskCommandAttributes::request_start`
+     *           See `ScheduleActivityTaskCommandAttributes::request_eager_execution`
      *     @type int|string $reset_history_event_id
      *           If non zero, indicates the server has discarded the workflow task that was being responded to.
      *           Will be the event ID of the last workflow task started event in the history before the new workflow task.
@@ -93,7 +93,7 @@ class RespondWorkflowTaskCompletedResponse extends \Google\Protobuf\Internal\Mes
     }
 
     /**
-     * See `ScheduleActivityTaskCommandAttributes::request_start`
+     * See `ScheduleActivityTaskCommandAttributes::request_eager_execution`
      *
      * Generated from protobuf field <code>repeated .temporal.api.workflowservice.v1.PollActivityTaskQueueResponse activity_tasks = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -104,7 +104,7 @@ class RespondWorkflowTaskCompletedResponse extends \Google\Protobuf\Internal\Mes
     }
 
     /**
-     * See `ScheduleActivityTaskCommandAttributes::request_start`
+     * See `ScheduleActivityTaskCommandAttributes::request_eager_execution`
      *
      * Generated from protobuf field <code>repeated .temporal.api.workflowservice.v1.PollActivityTaskQueueResponse activity_tasks = 2;</code>
      * @param array<\Temporal\Api\Workflowservice\V1\PollActivityTaskQueueResponse>|\Google\Protobuf\Internal\RepeatedField $var
