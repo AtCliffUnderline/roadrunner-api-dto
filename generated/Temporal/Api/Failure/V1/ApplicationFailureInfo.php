@@ -31,8 +31,6 @@ class ApplicationFailureInfo extends \Google\Protobuf\Internal\Message
      * retry interval calculated by the retry policy. Retry attempts will
      * still be subject to the maximum retries limit and total time limit
      * defined by the policy.
-     * ATTENTION: this value will be ignored if set for failures produced by
-     * the workflow.
      *
      * Generated from protobuf field <code>.google.protobuf.Duration next_retry_delay = 4;</code>
      */
@@ -52,8 +50,6 @@ class ApplicationFailureInfo extends \Google\Protobuf\Internal\Message
      *           retry interval calculated by the retry policy. Retry attempts will
      *           still be subject to the maximum retries limit and total time limit
      *           defined by the policy.
-     *           ATTENTION: this value will be ignored if set for failures produced by
-     *           the workflow.
      * }
      */
     public function __construct($data = NULL) {
@@ -142,8 +138,6 @@ class ApplicationFailureInfo extends \Google\Protobuf\Internal\Message
      * retry interval calculated by the retry policy. Retry attempts will
      * still be subject to the maximum retries limit and total time limit
      * defined by the policy.
-     * ATTENTION: this value will be ignored if set for failures produced by
-     * the workflow.
      *
      * Generated from protobuf field <code>.google.protobuf.Duration next_retry_delay = 4;</code>
      * @return \Google\Protobuf\Duration|null
@@ -168,8 +162,6 @@ class ApplicationFailureInfo extends \Google\Protobuf\Internal\Message
      * retry interval calculated by the retry policy. Retry attempts will
      * still be subject to the maximum retries limit and total time limit
      * defined by the policy.
-     * ATTENTION: this value will be ignored if set for failures produced by
-     * the workflow.
      *
      * Generated from protobuf field <code>.google.protobuf.Duration next_retry_delay = 4;</code>
      * @param \Google\Protobuf\Duration $var

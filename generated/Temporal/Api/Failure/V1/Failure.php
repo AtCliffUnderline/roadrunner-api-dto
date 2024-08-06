@@ -34,7 +34,7 @@ class Failure extends \Google\Protobuf\Internal\Message
      * errors originating in user code which might contain sensitive information.
      * The `encoded_attributes` Payload could represent any serializable object, e.g. JSON object or a `Failure` proto
      * message.
-     * SDK authors: 
+     * SDK authors:
      * - The SDK should provide a default `encodeFailureAttributes` and `decodeFailureAttributes` implementation that:
      *   - Uses a JSON object to represent `{ message, stack_trace }`.
      *   - Overwrites the original message with "Encoded failure" to indicate that more information could be extracted.
@@ -69,7 +69,7 @@ class Failure extends \Google\Protobuf\Internal\Message
      *           errors originating in user code which might contain sensitive information.
      *           The `encoded_attributes` Payload could represent any serializable object, e.g. JSON object or a `Failure` proto
      *           message.
-     *           SDK authors: 
+     *           SDK authors:
      *           - The SDK should provide a default `encodeFailureAttributes` and `decodeFailureAttributes` implementation that:
      *             - Uses a JSON object to represent `{ message, stack_trace }`.
      *             - Overwrites the original message with "Encoded failure" to indicate that more information could be extracted.
@@ -172,7 +172,7 @@ class Failure extends \Google\Protobuf\Internal\Message
      * errors originating in user code which might contain sensitive information.
      * The `encoded_attributes` Payload could represent any serializable object, e.g. JSON object or a `Failure` proto
      * message.
-     * SDK authors: 
+     * SDK authors:
      * - The SDK should provide a default `encodeFailureAttributes` and `decodeFailureAttributes` implementation that:
      *   - Uses a JSON object to represent `{ message, stack_trace }`.
      *   - Overwrites the original message with "Encoded failure" to indicate that more information could be extracted.
@@ -205,7 +205,7 @@ class Failure extends \Google\Protobuf\Internal\Message
      * errors originating in user code which might contain sensitive information.
      * The `encoded_attributes` Payload could represent any serializable object, e.g. JSON object or a `Failure` proto
      * message.
-     * SDK authors: 
+     * SDK authors:
      * - The SDK should provide a default `encodeFailureAttributes` and `decodeFailureAttributes` implementation that:
      *   - Uses a JSON object to represent `{ message, stack_trace }`.
      *   - Overwrites the original message with "Encoded failure" to indicate that more information could be extracted.

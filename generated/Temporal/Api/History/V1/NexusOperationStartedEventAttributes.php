@@ -32,6 +32,12 @@ class NexusOperationStartedEventAttributes extends \Google\Protobuf\Internal\Mes
      * Generated from protobuf field <code>string operation_id = 3;</code>
      */
     protected $operation_id = '';
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 4;</code>
+     */
+    protected $request_id = '';
 
     /**
      * Constructor.
@@ -44,6 +50,8 @@ class NexusOperationStartedEventAttributes extends \Google\Protobuf\Internal\Mes
      *     @type string $operation_id
      *           The operation ID returned by the Nexus handler in the response to the StartOperation request.
      *           This ID is used when canceling the operation.
+     *     @type string $request_id
+     *           The request ID allocated at schedule time.
      * }
      */
     public function __construct($data = NULL) {
@@ -101,6 +109,32 @@ class NexusOperationStartedEventAttributes extends \Google\Protobuf\Internal\Mes
     {
         GPBUtil::checkString($var, True);
         $this->operation_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 4;</code>
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->request_id;
+    }
+
+    /**
+     * The request ID allocated at schedule time.
+     *
+     * Generated from protobuf field <code>string request_id = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRequestId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->request_id = $var;
 
         return $this;
     }

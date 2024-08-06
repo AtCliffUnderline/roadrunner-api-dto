@@ -89,6 +89,13 @@ class PendingNexusOperationInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.temporal.api.workflow.v1.NexusOperationCancellationInfo cancellation_info = 12;</code>
      */
     protected $cancellation_info = null;
+    /**
+     * The event ID of the NexusOperationScheduled event. Can be used to correlate an operation in the
+     * DescribeWorkflowExecution response with workflow history.
+     *
+     * Generated from protobuf field <code>int64 scheduled_event_id = 13;</code>
+     */
+    protected $scheduled_event_id = 0;
 
     /**
      * Constructor.
@@ -123,6 +130,9 @@ class PendingNexusOperationInfo extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $next_attempt_schedule_time
      *           The time when the next attempt is scheduled.
      *     @type \Temporal\Api\Workflow\V1\NexusOperationCancellationInfo $cancellation_info
+     *     @type int|string $scheduled_event_id
+     *           The event ID of the NexusOperationScheduled event. Can be used to correlate an operation in the
+     *           DescribeWorkflowExecution response with workflow history.
      * }
      */
     public function __construct($data = NULL) {
@@ -500,6 +510,34 @@ class PendingNexusOperationInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Temporal\Api\Workflow\V1\NexusOperationCancellationInfo::class);
         $this->cancellation_info = $var;
+
+        return $this;
+    }
+
+    /**
+     * The event ID of the NexusOperationScheduled event. Can be used to correlate an operation in the
+     * DescribeWorkflowExecution response with workflow history.
+     *
+     * Generated from protobuf field <code>int64 scheduled_event_id = 13;</code>
+     * @return int|string
+     */
+    public function getScheduledEventId()
+    {
+        return $this->scheduled_event_id;
+    }
+
+    /**
+     * The event ID of the NexusOperationScheduled event. Can be used to correlate an operation in the
+     * DescribeWorkflowExecution response with workflow history.
+     *
+     * Generated from protobuf field <code>int64 scheduled_event_id = 13;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setScheduledEventId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->scheduled_event_id = $var;
 
         return $this;
     }
